@@ -1,0 +1,32 @@
+4) Give the name and length of the third largest gene in the genome.
+
+mysql> select gene_name, (seq_region_end-seq_region_start) as length from gene order by (seq_region_end-seq_region_start) desc limit 1 offset 2;
++-----------+---------+
+| gene_name | length  |
++-----------+---------+
+| PARP1     | 2493039 |
++-----------+---------+
+1 row in set (0.02 sec)
+
+
+
+5) Give the name of the gene with the most exons? Give the number of exons of this gene?
+
+
+
+
+
+6) Give the name of the chromosome with the most genes associated with breast cancer. Give the number of transcripts of this chromosome? (2 queries)
+
+mysql> select chromosome, description from gene where description like "%breast%" or "%cancer%";
+
+
+
+
+7)Give the number of rows from the exon table and do the same for the exon_transcript table (2 queries). Explain why there is a difference in number of rows.
+
+exon: 642590 rows
+exon_transcipt: 1178393 rows
+
+An exon can have multiple transcript, there fore there are more exontranscripts than exons.
+
