@@ -1,0 +1,25 @@
+The words in capital letters are the primary keys
+
+UNF 	lab(personnel_NR, name, dateofbirth, labcode, labname, researchcode, researchdescr, research_visor)
+
+
+This is only copy/paste the information
+
+1NF 	personnel(PERSONNEL_NR, name, dateofbirth)
+	lab(LABCODE, labname, RESEARCHCODE)
+	research(RESEARCHCODE, researchdescr, research_visor)
+
+All repeating and calculating groups have to be eliminated in individual tables. I created separate tables for each set of related data. And each set has a primary key.
+
+2NF 	personnel(PERSONNEL_NR, name, dateofbirth)
+	lab(LABCODE, labname, RESEARCHCODE)
+	research(RESEARCHCODE, researchdescr, research_visor, PERSONNEL_NR)
+
+Every non key attribute is dependent on a key and because a labmember can play a role in multiple researches, the PERSONNEL_NR is added to research.
+
+
+3NF	personnel(PERSONNEL_NR, name, dateofbirth)
+	lab(LABCODE, labname, RESEARCHCODE)
+	research(RESEARCHCODE, researchdescr, research_visor, PERSONNEL_NR)
+
+Every attribute is dependent on a key. The same as in 2NF
